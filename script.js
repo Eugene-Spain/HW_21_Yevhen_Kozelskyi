@@ -20,13 +20,25 @@ const AUSTRALIA = "Australia";
 const CANADA = "Canada";
 const USA = "USA";
 
+let cheapCountryList = [MOLDOVA, UKRAINE];
+let okCountryList = [SPAIN, FRANCE];
+let expensiveCountryList = [AUSTRALIA, CANADA, USA];
 
-requestCountryChoice = prompt(`Welcome to our travel agency 'Chao-Chao LTD'! Please choose country where you would like to travel. Right now we can provide you next countries: ${MOLDOVA}, ${UKRAINE}, ${SPAIN}, ${FRANCE}, ${AUSTRALIA}, ${CANADA} or ${USA}`);
-if ((requestCountryChoice === MOLDOVA) || (requestCountryChoice === UKRAINE)) {
+requestCountryChoice = prompt(`Welcome to our travel agency 'Chao-Chao LTD'! Please choose country where you would like to travel. Right now we can provide you next countries: ${cheapCountryList},${okCountryList},${expensiveCountryList}`);
+
+// I have decided to use Arrays so I did some rebuilds to the old code
+// if ((requestCountryChoice === MOLDOVA) || (requestCountryChoice === UKRAINE)) {
+//     countryChoice = cheapCountry;
+// } else if ((requestCountryChoice === SPAIN) || (requestCountryChoice === FRANCE)) {
+//     countryChoice = okCountry;
+// } else if ((requestCountryChoice === AUSTRALIA) || (requestCountryChoice === CANADA) || (requestCountryChoice === USA)) {
+//     countryChoice = expensiveCountry;
+
+if ((requestCountryChoice === cheapCountryList[0]) || (requestCountryChoice === cheapCountryList [1])) {
     countryChoice = cheapCountry;
-} else if ((requestCountryChoice === SPAIN) || (requestCountryChoice === FRANCE)) {
+} else if ((requestCountryChoice === okCountryList[0]) || (requestCountryChoice === okCountryList[1])) {
     countryChoice = okCountry;
-} else if ((requestCountryChoice === AUSTRALIA) || (requestCountryChoice === CANADA) || (requestCountryChoice === USA)) {
+} else if ((requestCountryChoice === expensiveCountryList[0]) || (requestCountryChoice === expensiveCountryList[1]) ||(requestCountryChoice === expensiveCountryList[2])) {
     countryChoice = expensiveCountry;
 } else {
     alert(`Hope sometimes we could provide you services to ${requestCountryChoice} but right now try to select country from the list or check if you haven't done any mistake`)
@@ -57,15 +69,15 @@ if (countryChoice && budgetChoice) {
         }
     }else if(countryChoice === okCountry){
         if (budgetChoice === cheapPrice){
-            alert(`Oh no, you cant go to ${requestCountryChoice} for ${requestBudgetChoice} . But you may visit ${MOLDOVA} or ${UKRAINE}`)
+            alert(`Oh no, you cant go to ${requestCountryChoice} for ${requestBudgetChoice} . But you may visit ${cheapCountryList}`)
         } else {
             alert(`You've got a point! Lets help us to provide you a travel to ${requestCountryChoice} for ${requestBudgetChoice} $`)
         }
     }else if(countryChoice === expensiveCountry){
         if (budgetChoice === cheapPrice){
-            alert(`Oh no, you cant go to ${requestCountryChoice} for ${requestBudgetChoice} $. But you may visit ${MOLDOVA} or ${UKRAINE}`)
+            alert(`Oh no, you cant go to ${requestCountryChoice} for ${requestBudgetChoice} $. But you may visit ${cheapCountryList}`)
         } else if(budgetChoice === okPrice){
-            alert(`Oh no, you cant go to ${requestCountryChoice} for ${requestBudgetChoice} $. But you may visit ${MOLDOVA}, ${UKRAINE}, ${SPAIN} or ${FRANCE}`)
+            alert(`Oh no, you cant go to ${requestCountryChoice} for ${requestBudgetChoice} $. But you may visit ${cheapCountryList}, ${okCountryList}`)
         } else {
             alert(`You've got a point! Lets help us to provide you a travel to ${requestCountryChoice} for ${requestBudgetChoice} $`)
         }
